@@ -56,7 +56,7 @@ export const sendConfirmationEmail = async (email, fullName) => {
             <p>Thank you for registering with us! We are excited to have you on board.</p>
             <p>We will keep you updated with the latest information about our platform.</p>
             <p>If you have any questions, feel free to reach out to us anytime.</p>
-            <a href="#" class="button">Visit Our Website</a>
+            <a href="https://rava-csa-icicta-2025-4wn4.vercel.app/" class="button">Visit Our Website</a>
           </div>
           <div class="footer">
             <p>&copy; 2025 REVA: CSA ICICTA 2025. All rights reserved.</p>
