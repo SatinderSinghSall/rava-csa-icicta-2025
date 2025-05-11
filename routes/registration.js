@@ -75,4 +75,22 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
+//! To delete a user:
+router.delete("/:id", verifyToken, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleted = await Registration.findByIdAndDelete(id);
+    if (!deleted) {
+      return res.status(404).json({ message: "Registration not found" });
+    }
+    res.json({ message: "Registration deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting registration:", error);
+    res.status(500).json({
+      message: "Failed to delete registration",
+      error: error.message,
+    });
+  }
+});
+
 export default router;
