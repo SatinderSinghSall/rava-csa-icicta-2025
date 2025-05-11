@@ -8,7 +8,7 @@ const registrationSchema = new mongoose.Schema({
   institution: String,
   country: String,
   type: { type: String, enum: ["Presentation", "Participant"] },
-  srn: String,
+  srnOrCollegeId: String,
   programmeName: { type: String, enum: ["MCA", "M.SC", "Others"] },
   paperTitle: String,
   amountPaid: { type: Number, enum: [1300, 300, 250] },

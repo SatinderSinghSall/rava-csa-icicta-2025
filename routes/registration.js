@@ -17,7 +17,7 @@ const registrationSchema = Joi.object({
   institution: Joi.string().required(),
   country: Joi.string().required(),
   type: Joi.string().valid("Presentation", "Participant").required(),
-  srn: Joi.string().required(),
+  srnOrCollegeId: Joi.string().required(),
   programmeName: Joi.string().valid("MCA", "M.SC", "Others").required(),
   paperTitle: Joi.string().required(),
   amountPaid: Joi.number().valid(1300, 300, 250).required(),
