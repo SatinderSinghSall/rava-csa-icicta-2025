@@ -6,7 +6,7 @@ import { sendConfirmationEmail } from "../services/emailService.js";
 
 const router = express.Router();
 
-// Joi schema for validation
+//! Joi schema for validation
 const registrationSchema = Joi.object({
   fullName: Joi.string().min(3).required(),
   email: Joi.string().email().required(),
@@ -16,8 +16,16 @@ const registrationSchema = Joi.object({
   category: Joi.string().required(),
   institution: Joi.string().required(),
   country: Joi.string().required(),
+  type: Joi.string().valid("Presentation", "Participant").required(),
+  srn: Joi.string().required(),
+  programmeName: Joi.string().valid("MCA", "M.SC", "Others").required(),
+  paperTitle: Joi.string().required(),
+  amountPaid: Joi.number().valid(1300, 300, 250).required(),
+  transactionNumber: Joi.string().required(),
+  guideName: Joi.string().required(),
 });
 
+//! Route to add a new registration:
 router.post("/", async (req, res) => {
   try {
     // Validate the request body
@@ -54,6 +62,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+//! Route to get all registrations:
 router.get("/", verifyToken, async (req, res) => {
   try {
     const allRegistrations = await Registration.find().sort({ createdAt: -1 });
