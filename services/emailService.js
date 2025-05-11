@@ -1,3 +1,5 @@
+import transporter from "../config/nodemailerConfig.js";
+
 export const sendConfirmationEmail = async (email, fullName) => {
   const htmlContent = `
     <!DOCTYPE html>
